@@ -1,0 +1,4 @@
+secure-smtplib==0.1.1
+beautifulsoup4==4.11.1
+requests==2.28.1
+python-dotenv==1.0.0
