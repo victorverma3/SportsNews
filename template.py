@@ -32,25 +32,39 @@ def template(sport):
                         width: 100%;
                     }
                     .feedback {
-                        display: block;
                         text-align: center;
-                        font-size: 2.75vw;
-                        padding-bottom: 1%;
+                        font-size: 2.5vw;
+                        padding: 0px 1% 1% 1%;
                     }
             		.headlines {
-                        display: block;
                         text-align: center;
-                        font-size: 3.25vw;
+                        font-size: 3vw;
                         padding-bottom: 1%;
             		}
             		.sport {
-            			display: block;
             			width: 96%;
             			padding: 0% 2% 0% 2%;
             		}
                     .subheader {
                         text-align: center;
                         font-size: 4vw;
+                    }
+                    /* Adjust font size for MacBook and Desktop */
+                    @media (min-width: 769px) {
+                        .feedback {
+                            text-align: center;
+                            font-size: 2vw;
+                            padding: 0px 1% 1% 1%;
+                        }
+                        .headlines {
+                            text-align: center;
+                            font-size: 2.5vw;
+                            padding-bottom: 1%;
+                        }
+                        .subheader {
+                            text-align: center;
+                            font-size: 3.5vw;
+                        }
                     }
             	</style>
             </head>
