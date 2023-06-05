@@ -36,13 +36,11 @@ def template(sport):
                         margin: auto;
                         text-align: center;
                         font-size: 2.5vw;
-                        padding-bottom: 1%;
                     }
             		.headlines {
                         text-align: center;
                         font-size: 3vw;
                         padding-bottom: 1%;
-                        color: #333333;
             		}
             		.sport {
             			width: 96%;
@@ -56,21 +54,19 @@ def template(sport):
                     @media (min-width: 769px) {
                         .feedback {
                             width: 80%;
+                            margin: auto;
                             text-align: center;
                             font-size: 2vw;
-                            padding: 0px 1% 1% 1%;
-                            color: #333333;
+                            padding-bottom: 1%;
                         }
                         .headlines {
                             text-align: center;
                             font-size: 2.5vw;
                             padding-bottom: 1%;
-                            color: #333333;
                         }
                         .subheader {
                             text-align: center;
                             font-size: 3.5vw;
-                            color: #333333;
                         }
                     }
             	</style>
