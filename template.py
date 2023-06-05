@@ -26,20 +26,23 @@ def template(sport):
             <head>
             	<style type="text/css">
             		.body {
-            			background-color: ghostwhite;
+            			background-color: #f1f8ff;
             		}
                     .divider {
                         width: 100%;
                     }
                     .feedback {
+                        width: 80%;
+                        margin: auto;
                         text-align: center;
                         font-size: 2.5vw;
-                        padding: 0px 1% 1% 1%;
+                        padding-bottom: 1%;
                     }
             		.headlines {
                         text-align: center;
                         font-size: 3vw;
                         padding-bottom: 1%;
+                        color: #333333;
             		}
             		.sport {
             			width: 96%;
@@ -52,18 +55,22 @@ def template(sport):
                     /* Adjust font size for MacBook and Desktop */
                     @media (min-width: 769px) {
                         .feedback {
+                            width: 80%;
                             text-align: center;
                             font-size: 2vw;
                             padding: 0px 1% 1% 1%;
+                            color: #333333;
                         }
                         .headlines {
                             text-align: center;
                             font-size: 2.5vw;
                             padding-bottom: 1%;
+                            color: #333333;
                         }
                         .subheader {
                             text-align: center;
                             font-size: 3.5vw;
+                            color: #333333;
                         }
                     }
             	</style>
