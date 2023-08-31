@@ -8,6 +8,7 @@ Created on Fri Mar 10 10:45:43 2023
 
 # Imports
 from bs4 import BeautifulSoup
+import json
 import requests as requests
 
 
@@ -40,11 +41,13 @@ def cfootball():
     """This function scrapes the latest headliens from espn.com/college-football
     and returns them as a string formatted in html."""
     headlines = ""
-    page = requests.get("https://www.espn.com/college-football")
-    soup = BeautifulSoup(page.text, "html.parser")
-    for headline in soup.find_all("a", attrs={"data-mptype": "headline"}):
-        if headline.text.strip() not in headlines:
-            headlines = headlines + "- " + headline.text.strip() + " <br> "
+    page = requests.get(
+        "http://site.api.espn.com/apis/site/v2/sports/football/college-football/news"
+    )
+    data = json.loads(page.text)
+    for article in data["articles"]:
+        if article["headline"] not in headlines:
+            headlines = headlines + "- " + article["headline"] + " <br> "
     return headlines
 
 

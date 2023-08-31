@@ -13,7 +13,7 @@ from scrapers import *
 links = {
     "basketball": "nba.com",
     "cbasketball": "espn.com/mens-college-basketball",
-    "cfootball": "espn.com/college-football",
+    "cfootball": "espn.com/apis/site/v2/sports/football/college-football/news",
     "cricket": "espncricinfo.com/cricket-news",
     "football": "nfl.com",
     "soccer": "espn.com/soccer",
