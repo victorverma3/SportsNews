@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Mar 10 10:51:54 2023
-
-@author: victor
-"""
-
 # Imports
 from scrapers import *
 
