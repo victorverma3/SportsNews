@@ -1,5 +1,5 @@
 # Imports
-from datetime import datetime, date
+from datetime import date
 from dotenv import load_dotenv
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
