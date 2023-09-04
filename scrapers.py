@@ -1,6 +1,5 @@
 # Imports
 from bs4 import BeautifulSoup
-import json
 from requests_html import HTMLSession
 
 
