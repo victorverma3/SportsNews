@@ -3,3 +3,4 @@
 /.vscode/
 .env
 emailtest.py
+maillists.py
