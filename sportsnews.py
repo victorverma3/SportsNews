@@ -6,7 +6,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import os
 import smtplib
-from template import *
+from template import sports_template
 
 # setup
 load_dotenv()
@@ -46,7 +46,7 @@ def sendEmail(sport):
     msg["To"] = msg["From"]
     msg["Bcc"] = emails
     msg["Subject"] = f"Daily {sports[sport]} Update"
-    msg.attach(MIMEText(template(sport), "html"))
+    msg.attach(MIMEText(sports_template(sport), "html"))
 
     # sends email
     pswd = os.environ.get("EMAIL_PASSWORD")

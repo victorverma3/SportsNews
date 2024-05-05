@@ -13,7 +13,7 @@ links = {
 
 
 # creates email template
-def template(sport):
+def sports_template(sport):
     return (
         """
         <html>
