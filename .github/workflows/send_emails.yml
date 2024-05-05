@@ -1,0 +1,29 @@
+name: automated email sending
+
+on:
+    schedule:
+        - cron: 0 13 * * *
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: checkout repo content
+              uses: actions/checkout@v2
+
+            - name: setup python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.10.7"
+
+            - name: install python packages
+              run: |
+                  python3 -m pip install --upgrade pip
+                  pip install -r backend/requirements.txt
+
+            - name: execute sportsnews.py
+              env:
+                  SUPABASE_URL: ${{ secrets.HOTMAIL_PASSWORD }}
+                  SUPABASE_KEY: ${{ secrets.MONGODBURI }}
+              run: python3 sportsnews.py
