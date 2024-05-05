@@ -1,14 +1,14 @@
-# Imports
+# imports
 from bs4 import BeautifulSoup
 from requests_html import HTMLSession
 
 
-# Scrapers
+# scrapes the latest basketball headlines and converts them to an html-formatted string
 def basketball():
-    """This function scrapes the latest headlines from nba.com and returns
-    them as a string formatted in html."""
+
     headlines = ""
     count = 0
+
     session = HTMLSession()
     page = session.get("https://www.nba.com")
     soup = BeautifulSoup(page.html.raw_html, "html.parser")
@@ -16,14 +16,16 @@ def basketball():
         if headline.text.strip() not in headlines and count < 20:
             headlines = headlines + "- " + headline.text.strip() + " <br> "
             count += 1
+
     return headlines
 
 
+# scrapes the latest college basketball headlines and converts them to an html-formatted string
 def cbasketball():
-    """This function scrapes the latest headliens from espn.com/mens-college-basketball
-    and returns them as a string formatted in html."""
+
     headlines = ""
     count = 0
+
     session = HTMLSession()
     page = session.get("https://www.espn.com/mens-college-basketball/")
     soup = BeautifulSoup(page.html.raw_html, "html.parser")
@@ -31,14 +33,16 @@ def cbasketball():
         if headline.text.strip() not in headlines and count < 20:
             headlines = headlines + "- " + headline.text.strip() + " <br> "
             count += 1
+
     return headlines
 
 
+# scrapes the latest college football headlines and converts them to an html-formatted string
 def cfootball():
-    """This function scrapes the latest headliens from espn.com/college-football
-    and returns them as a string formatted in html."""
+
     count = 0
     headlines = ""
+
     session = HTMLSession()
     page = session.get("https://www.espn.com/college-football/")
     soup = BeautifulSoup(page.html.raw_html, "html.parser")
@@ -46,14 +50,16 @@ def cfootball():
         if headline.text.strip() not in headlines and count < 20:
             headlines = headlines + "- " + headline.text.strip() + " <br> "
             count += 1
+
     return headlines
 
 
+# scrapes the latest cricket headlines and converts them to an html-formatted string
 def cricket():
-    """This function scrapes the latest headlines from espncricinfo.com/cricket-news
-    and returns them as a string formatted in html."""
+
     headlines = ""
     count = 0
+
     session = HTMLSession()
     page = session.get("https://www.espncricinfo.com/cricket-news")
     soup = BeautifulSoup(page.html.raw_html, "html.parser")
@@ -62,14 +68,16 @@ def cricket():
         if title.text.strip() not in headlines and count < 20:
             headlines = headlines + "- " + title.text.strip() + " <br> "
             count += 1
+
     return headlines
 
 
+# scrapes the latest football headlines and converts them to an html-formatted string
 def football():
-    """This function scrapes the latest headlines from nfl.com and returns
-    them as a string formatted in html."""
+
     headlines = ""
     count = 0
+
     session = HTMLSession()
     page = session.get("https://www.nfl.com/")
     soup = BeautifulSoup(page.html.raw_html, "html.parser")
@@ -79,14 +87,16 @@ def football():
         if headline.text.strip() not in headlines and count < 20:
             headlines = headlines + "- " + headline.text.strip() + " <br> "
             count += 1
+
     return headlines
 
 
+# scrapes the latest soccer headlines and converts them to an html-formatted string
 def soccer():
-    """This function scrapes the latest headlines from espn.com/soccer
-    and returns them as a string formatted in html."""
+
     headlines = ""
     count = 0
+
     session = HTMLSession()
     page = session.get("https://www.espn.com/soccer/")
     soup = BeautifulSoup(page.html.raw_html, "html.parser")
@@ -94,4 +104,5 @@ def soccer():
         if headline.text.strip() not in headlines and count < 20:
             headlines = headlines + "- " + headline.text.strip() + " <br> "
             count += 1
+
     return headlines

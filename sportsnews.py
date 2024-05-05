@@ -1,4 +1,5 @@
-# Imports
+# imports
+import database
 from datetime import date
 from dotenv import load_dotenv
 from email.mime.multipart import MIMEMultipart
@@ -7,10 +8,10 @@ import os
 import smtplib
 from template import *
 
-# Setup
+# setup
 load_dotenv()
-pswd = os.environ.get("hotmail_password")
 
+# sports
 sports = {
     "basketball": "Basketball",
     "cbasketball": "College Basketball",
@@ -20,27 +21,35 @@ sports = {
     "soccer": "Soccer",
 }
 
-year = ["basketball", "cricket", "football", "soccer"]  # designated year-round sports
-seasonal = list(
-    filter(lambda x: x not in year, sports.keys())
-)  # designated seasonal sports
+# designated year-round sports
+year_round_sports = ["basketball", "cricket", "football", "soccer"]
+
+# designated seasonal sports
+seasonal_sports = list(filter(lambda x: x not in year_round_sports, sports.keys()))
+
+# seasonal sport windows
 times = {
     "cbasketball": {"start": date(2023, 11, 1), "end": date(2024, 4, 10)},
     "cfootball": {"start": date(2023, 8, 20), "end": date(2024, 1, 15)},
 }
 
 
-# Email
-def sendEmail(sport, emails):
-    """This function sends an email summarizing NFL and NBA headlines to a mailing list."""
+# sends email
+def sendEmail(sport):
 
+    # gets mailing list
+    emails = database.get_mailing_list(sport)
+
+    # constructs email
     msg = MIMEMultipart("alternative")
-    msg["From"] = "dailysportsupdate@outlook.com"  # email sender
+    msg["From"] = "dailysportsupdate@outlook.com"
     msg["To"] = msg["From"]
-    msg["Bcc"] = emails  # email receipients
-    msg["Subject"] = f"Daily {sports[sport]} Update"  # email subject line
-    msg.attach(MIMEText(template(sport), "html"))  # attaches the html template to email
+    msg["Bcc"] = emails
+    msg["Subject"] = f"Daily {sports[sport]} Update"
+    msg.attach(MIMEText(template(sport), "html"))
 
+    # sends email
+    pswd = os.environ.get("EMAIL_PASSWORD")
     with smtplib.SMTP(
         "smtp-mail.outlook.com", 587
     ) as s:  # establishes a connection to the hotmail server
@@ -51,13 +60,13 @@ def sendEmail(sport, emails):
         s.send_message(msg)
 
 
-if os.environ.get("call") == "1":
-    if __name__ == "__main__":
-        for sport in year:  # sends emails to designated year-round sports
-            sendEmail(sport, os.environ.get(f"{sport}List"))
-        for (
-            sport
-        ) in seasonal:  # sends emails to designated seasonal sports if within season
-            if times[sport]["start"] <= date.today() <= times[sport]["end"]:
-                sendEmail(sport, os.environ.get(f"{sport}List"))
-os.environ.pop("call", None)
+if __name__ == "__main__":
+
+    # sends emails to year-round sports
+    for sport in year_round_sports:
+        sendEmail(sport)
+
+    # sends emails to seasonal sports if within season
+    for sport in seasonal_sports:
+        if times[sport]["start"] <= date.today() <= times[sport]["end"]:
+            sendEmail(sport)

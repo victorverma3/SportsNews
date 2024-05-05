@@ -1,7 +1,7 @@
-# Imports
+# imports
 from scrapers import *
 
-# Data
+# setup
 links = {
     "basketball": "nba.com",
     "cbasketball": "espn.com/mens-college-basketball",
@@ -12,7 +12,7 @@ links = {
 }
 
 
-# Email Template
+# creates email template
 def template(sport):
     return (
         """
