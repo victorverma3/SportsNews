@@ -5,8 +5,12 @@ import pymongo
 
 # setup
 load_dotenv()
-client = pymongo.MongoClient(os.environ.get("mongoDBURI"))
-db = client["sportsnews-db"]
+try:
+    client = pymongo.MongoClient(os.environ.get("MONGODBURI"))
+    db = client["sportsnews-db"]
+    print("successfullt connected to MongoDB")
+except Exception as e:
+    print("failed to connect to MongoDB: ", e)
 
 
 # adds an email to a sport's mailing list
