@@ -8,7 +8,7 @@ load_dotenv()
 try:
     client = pymongo.MongoClient(os.environ.get("MONGODBURI"))
     db = client["sportsnews-db"]
-    print("successfullt connected to MongoDB")
+    print("successfully connected to MongoDB")
 except Exception as e:
     print("failed to connect to MongoDB: ", e)
 
