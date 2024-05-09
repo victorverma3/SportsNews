@@ -60,8 +60,8 @@ def sendEmail(sport):
             s.login(msg["From"], pswd)  # logs into the email account remotely
             s.send_message(msg)
         print(f"\nsuccessfully sent {sport} email")
-    except:
-        print(f"\nfailed to send {sport} email")
+    except Exception as e:
+        print(f"\nfailed to send {sport} email: ", e)
 
 
 if __name__ == "__main__":
