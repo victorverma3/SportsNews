@@ -25,6 +25,6 @@ jobs:
 
             - name: execute sportsnews.py
               env:
-                  EMAIL_PASSWORD: ${{ secrets.HOTMAIL_PASSWORD }}
+                  EMAIL_PASSWORD: ${{ secrets.PASSWORD }}
                   MONGODBURI: ${{ secrets.MONGODBURI }}
               run: python3 sportsnews.py

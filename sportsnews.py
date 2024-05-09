@@ -10,6 +10,7 @@ from template import sports_template
 
 # setup
 load_dotenv()
+pswd = os.environ.get("PASSWORD")
 
 # sports
 sports = {
@@ -35,7 +36,7 @@ times = {
 
 
 # sends email
-def sendEmail(sport):
+def sendEmail(sport, pswd):
 
     # gets mailing list
     emails = database.get_mailing_list(sport)
@@ -49,7 +50,6 @@ def sendEmail(sport):
     msg.attach(MIMEText(sports_template(sport), "html"))
 
     # sends email
-    pswd = os.environ.get("EMAIL_PASSWORD")
     try:
         with smtplib.SMTP(
             "smtp-mail.outlook.com", 587
@@ -68,9 +68,9 @@ if __name__ == "__main__":
 
     # sends emails to year-round sports
     for sport in year_round_sports:
-        sendEmail(sport)
+        sendEmail(sport, pswd)
 
     # sends emails to seasonal sports if within season
     for sport in seasonal_sports:
         if times[sport]["start"] <= date.today() <= times[sport]["end"]:
-            sendEmail(sport)
+            sendEmail(sport, pswd)
