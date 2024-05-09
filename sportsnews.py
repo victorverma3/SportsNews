@@ -50,14 +50,18 @@ def sendEmail(sport):
 
     # sends email
     pswd = os.environ.get("EMAIL_PASSWORD")
-    with smtplib.SMTP(
-        "smtp-mail.outlook.com", 587
-    ) as s:  # establishes a connection to the hotmail server
-        s.ehlo()  # hostname to send for this command defaults to the fully qualified domain name of the local host
-        s.starttls()  # puts connection to SMTP server in TLS mode
-        s.ehlo()
-        s.login(msg["From"], pswd)  # logs into the email account remotely
-        s.send_message(msg)
+    try:
+        with smtplib.SMTP(
+            "smtp-mail.outlook.com", 587
+        ) as s:  # establishes a connection to the hotmail server
+            s.ehlo()  # hostname to send for this command defaults to the fully qualified domain name of the local host
+            s.starttls()  # puts connection to SMTP server in TLS mode
+            s.ehlo()
+            s.login(msg["From"], pswd)  # logs into the email account remotely
+            s.send_message(msg)
+        print(f"\nsuccessfully sent {sport} email")
+    except:
+        print(f"\nfailed to send {sport} email")
 
 
 if __name__ == "__main__":
