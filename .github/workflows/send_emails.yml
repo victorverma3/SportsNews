@@ -23,9 +23,12 @@ jobs:
                   python3 -m pip install --upgrade pip
                   pip install -r requirements.txt
 
-            - name: Create token file
-              run: |
-                  echo "${{ secrets.TOKEN }}" > token.json
+            - name: create token file
+              id: create-json
+              uses: jsdaniell/create-json@v1.2.3
+              with:
+                  name: "token.json"
+                  json: ${{ secrets.TOKEN }}
 
             - name: execute sportsnews.py
               env:
