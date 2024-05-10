@@ -2,5 +2,8 @@
 /.DS_Store
 /.vscode/
 .env
+credentials.json
 emailtest.py
+local.py
 maillists.py
+token.json
