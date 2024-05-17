@@ -1,8 +1,9 @@
 name: automated email sending
 
 on:
-    schedule:
-        - cron: 0 13 * * *
+    workflow_dispatch:
+    # schedule:
+    #     - cron: 0 13 * * *
 
 jobs:
     build:

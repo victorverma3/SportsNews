@@ -70,7 +70,7 @@ def sports_template(sport):
             	<div class = "sport">
                     <h3 class = "subheader" > These are the latest articles on """
         + links[sport]
-        + """: </h3>
+        + """</h3>
             		<div class = "headlines"> """
         + eval(sport + "()")
         + """ </div>
