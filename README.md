@@ -1,5 +1,7 @@
 # SportsNews
 
+UPDATE: The automated emails are currently disabled due to an expired Google OAuth Access Token. This token can be refreshed but is not worth the effort to maintain.
+
 ## Inspiration
 
 I am a big sports fan. Although I am constantly checking social media, it is extremely chaotic and time-consuming to keep up with the latest headlines, and even harder to filter through what is important. I realized that although I rarely check websites such as nfl.com and nba.com for news, I always check my email, so I came up with a solution to my problem. I created a newsletter that would be sent to my inbox every morning with the most important sports news directly from the corresponding website and built this project. Basketball, college basketball, college football, cricket, football, and soccer are supported, and it is currently used by my dad and I.
